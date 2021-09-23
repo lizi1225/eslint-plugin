@@ -8,7 +8,7 @@ const ruleComposer = require("eslint-rule-composer");
 const utils = require("../utils");
 const { hasSideEffect } = require("../ast-utils");
 
-const rule = utils.getFixableRule("no-unused-vars", false);
+const rule = utils.getFixableRule(null, false);
 
 const commaFilter = { filter: token => token.value === "," };
 
@@ -186,6 +186,10 @@ module.exports = ruleComposer.mapReports(
                     }
 
                     if (grand.declarations.length === 1) {
+                        // delete unused exports
+                        if (grand.parent && grand.parent.type === 'ExportNamedDeclaration') {
+                            return fixer.remove(grand.parent)
+                        }
                         return fixer.remove(grand);
                     }
 
@@ -231,6 +235,9 @@ module.exports = ruleComposer.mapReports(
                     ];
                 case "ArrayPattern":
                     return fixer.remove(node);
+                // delete unused TSEnumDeclaration
+                case "TSEnumDeclaration":
+                    return fixer.remove(parent);
                 default:
                     return null;
             }

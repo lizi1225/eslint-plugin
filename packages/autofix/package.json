@@ -1,7 +1,7 @@
 {
-  "name": "eslint-plugin-autofix",
-  "version": "1.0.5",
-  "author": "薛定谔的猫 <weiran.zsd@outlook.com>",
+  "name": "eslint-plugin-autofix-fork",
+  "version": "0.0.1",
+  "author": "lizi",
   "description": "autofix some errors reported by eslint rules.",
   "main": "./lib/index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "lib"
   ],
   "dependencies": {
+    "eslint-plugin-deadvars": "^1.0.1",
     "eslint-rule-composer": "^0.3.0",
     "espree": "^7.3.1",
     "esutils": "^2.0.2",
@@ -39,9 +40,8 @@
     "autofix"
   ],
   "license": "MIT",
-  "repository": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/autofix",
-  "homepage": "https://github.com/aladdin-add/eslint-plugin/tree/master/packages/autofix",
-  "bugs": "https://github.com/aladdin-add/eslint-plugin/issues/new?assignees=aladdin-add&labels=bug&template=bug-report--eslint-plugin-autofix.md&title=eslint-plugin-autofix+bug",
+  "repository": "https://github.com/lizi1225/eslint-plugin",
+  "homepage": "https://github.com/lizi1225/eslint-plugin",
   "engines": {
     "node": ">=8"
   }
